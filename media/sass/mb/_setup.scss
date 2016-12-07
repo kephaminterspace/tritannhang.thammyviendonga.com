@@ -1,0 +1,59 @@
+$color1:#00b275;
+$color2:#ec616b;
+$gray:#4c4c4c;
+.effect{transition:all 500ms ease-in-out 0s;}
+@font-face {
+    font-family: avo;
+    src: url(../fonts/UTM_Avo.ttf) format('truetype'), url(../fonts/UTM_Avo.woff) format('woff')
+}
+@font-face {
+    font-family: mso;
+    src: url(../fonts/museo700_regular.ttf) format('truetype'), url(../fonts/museo700_regular.woff) format('woff')
+}
+@font-face {
+    font-family: oxy;
+    src: url(../fonts/Oxy_Vietnam.ttf) format('truetype'), url(../fonts/Oxy_Vietnam.woff) format('woff')
+}
+
+@font-face {
+    font-family: oxy_bold;
+    src: url(../fonts/Oxy_Vietnam_Bold.ttf) format('truetype'), url(../fonts/Oxy_Vietnam_Bold.woff) format('woff')
+}
+@font-face{ font-family:Roboto Condensed; src:url(../fonts/RobotoCondensed-Regular.ttf) format('truetype'),url(../fonts/RobotoCondensed-Regular.woff) format('woff')}
+%fox{
+    font-family: oxy;
+}
+%foxb{
+    font-family: oxy_bold;
+}
+%hd-shadow{
+	box-shadow:0 4px 8px #ddd;
+}
+$r1366: "(max-width: 1366px)";
+$r1280: "(max-width: 1280px)";
+$r1024: "(max-width: 1024px)";
+$r768: "(max-width: 768px)";
+$r480: "(max-width: 480px)";
+$r414: "(max-width:414px)";
+$r375: "(max-width:375px)";
+$r360: "(max-width:360px)";
+$r320: "(max-width:320px)";
+.aligncenter {
+    margin: 5px auto;
+    display: block;
+    max-width: 100%;
+}
+.pc{
+    display: block;
+    @media #{$r480} {
+        display: none;
+    }
+}
+.mb{
+    display: none;
+    @media #{$r480} {
+        display: block;
+    }
+}
+
+

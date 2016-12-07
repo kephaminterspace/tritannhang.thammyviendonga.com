@@ -1,0 +1,251 @@
+#landingPage{
+	section{
+		padding:60px 0;
+	}
+	#page1{
+		padding:20px 0;
+		background:url(../../images/page1.jpg) center 0 no-repeat;
+		min-height:580px;
+		.regist{
+			position: absolute;
+			top:340px;
+			left:178px;
+			a{
+				display: block;
+				background:url(../../images/p1-regist.png) 0 0 no-repeat;
+				width:193px;
+				height:49px;
+			}
+		}
+		@media #{$r1024} {
+			background-size:178%;
+			min-height: 550px;
+			.regist{
+				left:97px;
+			}
+		}
+		@media #{$r768} {
+			background-size:178%;
+			min-height: 412px;
+			.regist{
+				left:50px;
+				top:232px;
+			}
+		}
+	}
+	#page2{
+		background: url(../../images/page2.jpg) center 0 no-repeat;
+		min-height:600px;
+		.boxtech{
+			float:right;
+			h3{
+				margin-bottom: 20px;
+			}
+			.card{
+				border:none;
+				margin:0;
+				border-bottom: 1px solid #fff;
+			}
+			.card-header:first-child{border-radius: 0;}
+			.card-header{
+				border:none;
+				background:#00b275;
+				padding:0;
+				a{
+					font-size:14px;
+					color:#fff;
+					font-family: oxy_bold;
+					display: block;
+					padding:15px 1.25rem;
+					&:hover,&:focus{
+						text-decoration: none;
+					}
+				}
+			}
+			.card-block{
+				background:#eeeeee;
+				article{
+					img{
+						float:left;
+						margin:0 20px 0 0;
+						text-align: justify;
+					}
+				}
+			}
+		}
+		@media #{$r768} {
+			background:none;
+			min-height: 460px;
+		}
+	}
+	#page3{
+		background:url(../../images/page3.jpg) center 0 no-repeat;
+		min-height:672px;
+		.row{
+			margin-top:40px;
+		}
+		.doctor{
+			display: flex;
+			width:100%;
+			article{
+				width:251px;
+				float:left;
+				list-style: none;
+				margin:5px;
+				background:#fff;
+				b{
+					display: block;
+					text-align: center;
+					color:#fff;
+					background:$color1;
+					padding:8px;
+				}
+				i{
+					color:#0b7c5d;
+					padding:10px;
+					display:block;
+					font-size:13px;
+				}
+				img{
+					width:100%;
+				}
+			}
+		}
+		.carousel{
+			width:92%;
+			float:right;
+			margin:20px 0 0;
+			.carousel-indicators{
+				bottom:-50px;
+				li{
+					border:1px solid $color1;
+				}
+				.active{
+					background:$color1;
+				}
+			}
+
+		}
+		@media #{$r1024} {
+			min-height:570px;
+		}
+		@media #{$r768} {
+			background:#f1f3d7;
+			.doctor{
+				margin:0 auto;
+				width:76%;
+			}
+			.carousel{
+				width:100%;
+			}
+		}
+	}
+	#page4{
+		background: #eee url(../../images/page4.jpg) center bottom no-repeat;
+		figure{
+			h2{
+				font-family: mso;
+				text-transform: uppercase;
+				color:#0b7c5d;
+				font-size:25px;
+			}
+		}
+		.form{
+			width:100%;
+			min-height: 388px;
+			margin:0;
+			padding:0;
+			color:#fff;
+			text-align: center;
+			h3{
+				font-size:20px;
+				text-transform: uppercase;
+			}
+			h4{
+				font-size:20px;
+				font-weight: bold;
+				span{
+					text-transform: uppercase;
+				}
+			}
+			hr{
+				border-top:1px solid #80d9ba;
+				margin:10px 0;
+			}
+			iframe{
+				height:50px;
+			}
+			&>div{
+				padding:20px 38px 40px;
+				border-radius: 4px;
+				background: #00b275;
+			}
+			article{
+				margin:0 auto;
+				padding: 0;
+				width: 100%;
+			}
+			.dkbt{
+				padding:10px 0 0;
+			}
+
+			.fct input, .fct textarea,.fct select{
+				width:100%;
+				margin:4px 0 7px;
+				border:none;
+				padding:10px 12px;
+				border-radius: 4px;
+			}
+			.fct textarea{
+				height:102px;
+				resize:none;
+				font-family:arial;
+				font-size:14px;
+			}
+			.fct input:focus, .fct textarea:focus{
+				border:none;
+				outline: none;
+				background:#018256;
+				color:#fff;
+			}
+			.fct{
+				input:focus::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+				  color: white;
+				}
+				input:focus::-moz-placeholder { /* Firefox 19+ */
+				  color: white;
+				}
+				input:focus:-ms-input-placeholder { /* IE 10+ */
+				  color: white;
+				}
+				input:focus:-moz-placeholder { /* Firefox 18- */
+				  color: white;
+				}
+			}
+			.fbt{
+				background:#018256;
+				color:#fff;
+				border:none;
+				width:198px;
+				height:60px;
+				display: block;
+				cursor:pointer;
+				margin:0 auto;
+				border-radius: 30px;
+				border:3px solid #1fcd91;
+				font-size:18px;
+				text-transform: uppercase;
+				box-shadow: 0 0 4px rgba(0,0,0,0.3);
+			}
+		}
+		@media #{$r768} {
+			background-position: 10px 0;
+			.form{
+				margin:230px 0 0;
+			}
+		}
+	}
+	#page5{
+		padding:0;
+	}
+}
