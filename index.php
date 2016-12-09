@@ -102,7 +102,6 @@ $curl_errors = curl_error($ch);
 				<li><a href="#page4">Khuyến Mãi</a></li>
 			</ul>
 			<ul class="nav navbar-nav float-sm-right dktop form-inline">
-				<li><a class="btn" href="tel:19006499"><span class="icon-phone"></span> 1900.6499</a></li>
 				<li>
 					<a class="btn pc" href="#page4"><span class="icon-edit"></span> Đăng ký ngay</a>
 					<a class="btn mb" href="#form"><span class="icon-edit"></span> Đăng ký ngay</a>
@@ -278,7 +277,119 @@ $curl_errors = curl_error($ch);
 </section>
 
 <section id="page5">
-	<script type="text/javascript" src="http://quangcao247.com.vn/donga/footer.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://quangcao247.com.vn/donga/media/css/style.css">
+	<footer id="FTMNG">
+		<div class="row1">
+			<div class="fixwidth1">
+				<div>
+				</div>
+				<div>
+					<p>Thẩm Mỹ Viện Đông Á <span>- Hệ thống chuỗi TMV lớn nhất toàn quốc</span></p>
+				</div>
+			</div>
+		</div>
+		<div class="fixwidth fixwidth_custom">
+			<div class="row2">
+				<div class="row-1">
+					<div class="col">
+						<article class="child-col1">
+							<span>HÀ NỘI</span>
+						</article>
+						<article class="child-col2">
+							<div class="fixwidth1">
+								<a href="https://www.google.com/maps/place/Th%E1%BA%A9m+m%E1%BB%B9+vi%E1%BB%87n+%C4%90%C3%B4ng+%C3%81+H%C3%A0+N%E1%BB%99i/@21.0316652,105.8200869,16z/data=!4m2!3m1!1s0x0:0x52e35f35f12a3742?hl=vi" rel="nofollow" target="_blank" class="location">								212 Kim Mã, Q. Ba Đình							</a>
+								<a href="https://www.google.com/maps/place/Th%E1%BA%A9m+M%E1%BB%B9+Vi%E1%BB%87n+%C4%90%C3%B4ng+%C3%81+C%C6%A1+S%E1%BB%9F+3/@21.0185735,105.8471721,17z/data=!3m1!4b1!4m2!3m1!1s0x3135ab8d830526dd:0x1ee582e5aba681fe?hl=vi" rel="nofollow" target="_blank" class="location">								75 Bà Triệu, Q. Hai Bà Trưng							</a>						</div>
+						</article>
+					</div>
+					<div class="col">
+						<article class="child-col1">
+							<span>TP HCM</span>
+						</article>
+						<article class="child-col2">
+							<div class="fixwidth1">
+								<a href="https://www.google.com/maps/place/Th%E1%BA%A9m+m%E1%BB%B9+vi%E1%BB%87n+%C4%90%C3%B4ng+%C3%81+Tp.+H%E1%BB%93+Ch%C3%AD+Minh/@10.774084,106.678228,15z/data=!4m2!3m1!1s0x0:0xcb98d62b47852265?sa=X&amp;ved=0ahUKEwiI0_LSmrHPAhWMuI8KHd4wBmQQ_BIIlAEwCg" rel="nofollow" target="_blank" class="location">								69A Đường 3 tháng 2, Q. 10							</a>
+								<a href="" class="location">CR 01-02, Tòa nhà Crescent Residence 1 Hoàng Văn Thái, P. Tân Phú, Q.7</a>
+							</div>
+						</article>
+					</div>
+					<div class="col">
+						<article class="child-col1">
+							<span>HẢI PHÒNG</span>
+						</article>
+						<article class="child-col2">
+							<div class="fixwidth1">
+								<a href="https://www.google.com/maps/place/Th%E1%BA%A9m+M%E1%BB%B9+Vi%E1%BB%87n+%C4%90%C3%B4ng+%C3%81+H%E1%BA%A3i+Ph%C3%B2ng/@20.8513067,106.673664,17z/data=!4m8!1m2!2m1!1zdGjhuqltIG3hu7kgdmnhu4duIMSRw7RuZyDDoSBo4bqjaSBwaMOybmc!3m4!1s0x0:0x9e8f1b1211d7b17c!8m2!3d20.8499068!4d106.6738531" rel="nofollow" target="_blank" class="location">								378 Tô Hiệu, Q. Lê Chân							</a>
+							</div>
+						</article>
+					</div>
+				</div>
+				<div class="row-1">
+					<div class="col">
+						<article class="child-col1">
+							<span>NGHỆ AN</span>
+						</article>
+						<article class="child-col2">
+							<div class="fixwidth1">
+								<a href="https://www.google.com/maps/place/Th%E1%BA%A9m+M%E1%BB%B9+Vi%E1%BB%87n+%C4%90%C3%B4ng+%C3%81+t%E1%BA%A1i+Vinh/@18.6783225,105.6857086,15z/data=!4m5!3m4!1s0x0:0xa2dbf32eeba5848b!8m2!3d18.6783225!4d105.6857086" rel="nofollow" target="_blank" class="location">								148 Nguyễn Văn Cừ Hưng Phúc, TP. Vinh							</a>
+							</div>
+						</article>
+					</div>
+					<div class="col">
+						<article class="child-col1">
+							<span>ĐÀ NẴNG</span>
+						</article>
+						<article class="child-col2">
+							<div class="fixwidth1">
+								<a href="" class="location">293 Hùng Vương, Q. Thanh Khê</a>
+							</div>
+						</article>
+					</div>
+					<div class="col">
+						<article class="child-col1">
+							<span>CẦN THƠ</span>
+						</article>
+						<article class="child-col2">
+							<div class="fixwidth1">
+								<a rel="nofollow" target="_blank" href="https://www.google.com/maps/place/Th%E1%BA%A9m+M%E1%BB%B9+Vi%E1%BB%87n+%C4%90%C3%B4ng+%C3%81+t%E1%BA%A1i+C%E1%BA%A7n+Th%C6%A1/@10.0344324,105.7794839,15z/data=!4m2!3m1!1s0x0:0x69d1a661d9c1a59a?sa=X&amp;ved=0ahUKEwirz9fQ1NLQAhWRQpQKHd0PD6QQ_BIIdTAK" class="location">								28 Lý Tự Trọng, Q. Ninh Kiều TP. Cần Thơ							</a>
+							</div>
+						</article>
+					</div>
+				</div>
+				<div class="row-1">
+					<div class="col">
+						<article class="child-col1">
+							<span>BÌNH DƯƠNG</span>
+						</article>
+						<article class="child-col2">
+							<div class="fixwidth1">
+								<a href="" class="location">12 lô NP1 TTTM Becamex Đại lộ Bình Dương TP. Thủ Dầu Một</a>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="sub-ft">
+			<div class="fixwidth">
+				<article>
+					Giấy phép hoạt động số 1542/SYT-GPHĐ - Chứng chỉ hành nghề số 2473/HNO-CCHN - Giấy chứng nhận KD số 01A8013838
+					<p>
+						<a href="https://www.facebook.com/ThamMyDongA/"><img src="http://quangcao247.com.vn/donga/media/images/fb.png" class=""></a>
+						<a href="https://www.youtube.com/user/thammyviendonga"><img src="http://quangcao247.com.vn/donga/media/images/ytb.png" class=""></a>
+						<a href="https://plus.google.com/u/0/107836615070072204269/posts"><img src="http://quangcao247.com.vn/donga/media/images/gg.png" class=""></a>
+						<a href="mailto:tuvan@thammydonga.vn"><img src="http://quangcao247.com.vn/donga/media/images/mail.png" class=""></a>
+					</p>
+				</article>
+			</div>
+		</div>
+	</footer>
+	<style>
+
+		#FTMNG .fixwidth_custom {
+			height: 250px !important;
+		}
+	</style>
+
 </section>
 
 
