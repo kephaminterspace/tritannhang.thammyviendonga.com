@@ -2,67 +2,120 @@
 $message = '';
 $t=time();
 if(isset($_POST['name'])) {
-$arr = array(
-    'properties' => array(
-        array(
-            'property' => 'email',
-            'value' => $_POST['email']
-        ),
-        array(
-            'property' => 'firstname',
-            'value' => $_POST['name']
-        ),
-        array(
-            'property' => 'lastname',
-            'value' => ''
-        ),
-        array(
-            'property' => 'phone',
-            'value' => $_POST['phone']
-        ),
-        array(
-            'property' => 'note',
-            'value' => $_POST['note']
-        ),
-        array(
-            'property' => 'aff_source',
-            'value' => $_POST['aff_source']
-        ),
-        array(
-            'property' => 'aff_sid',
-            'value' => $_POST['aff_sid']
-        ),
-        array(
-            'property' => 'identifier',
-            'value' => $t
-        ),
-        array(
-            'property' => 'hs_lead_status',
-            'value' => "NEW"
-        )
-    )
-);
 
-$post_json = json_encode($arr);
+	function gen_uuid() {
+		return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+			// 32 bits for "time_low"
+			mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ),
 
-$endpoint = "https://api.hubapi.com/contacts/v1/contact/?hapikey=e205b78c-66de-43f8-88c2-0d62b81c67d1";
-$ch = @curl_init();
-@curl_setopt($ch, CURLOPT_POST, true);
-@curl_setopt($ch, CURLOPT_POSTFIELDS, $post_json);
-@curl_setopt($ch, CURLOPT_URL, $endpoint);
-@curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-@curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$response = @curl_exec($ch);
-$status_code = @curl_getinfo($ch, CURLINFO_HTTP_CODE);
-$curl_errors = curl_error($ch);
-@curl_close($ch);
-    if ($status_code == 200) {
-        header('Location: thank.php');
-        die();
-    }else{
-        $message = 'Email đã tồn tại';
-    }
-    }
+			// 16 bits for "time_mid"
+			mt_rand( 0, 0xffff ),
+
+			// 16 bits for "time_hi_and_version",
+			// four most significant bits holds version number 4
+			mt_rand( 0, 0x0fff ) | 0x4000,
+
+			// 16 bits, 8 bits for "clk_seq_hi_res",
+			// 8 bits for "clk_seq_low",
+			// two most significant bits holds zero and one for variant DCE1.1
+			mt_rand( 0, 0x3fff ) | 0x8000,
+
+			// 48 bits for "node"
+			mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff )
+		);
+	}
+
+	function validatePhone($phone_text){
+		$phone = preg_replace('/[^0-9]/', '', $phone_text);
+		if(strlen($phone) === 10 || strlen($phone) === 11) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function validateEmail($email){
+		return filter_var($email, FILTER_VALIDATE_EMAIL);
+	}
+
+	$check_messages=[];
+
+	if (!($_POST['name'])) {
+		$check_messages['name'] = 'style="border: 2px solid red;"';
+	}
+
+	if (!validatePhone($_POST['phone'])) {
+		$check_messages['phone'] = 'style="border: 2px solid red;"';
+	}
+
+	$email = $_POST['email'];
+	if (!validateEmail($email)) {
+		$check_messages['email'] = 'style="border: 2px solid red;"';
+	}
+	if (count($check_messages) == 0) {
+
+		$arr = array(
+			'properties' => array(
+				array(
+					'property' => 'email',
+					'value' => $_POST['email']
+				),
+				array(
+					'property' => 'firstname',
+					'value' => $_POST['name']
+				),
+				array(
+					'property' => 'lastname',
+					'value' => ''
+				),
+				array(
+					'property' => 'phone',
+					'value' => $_POST['phone']
+				),
+				array(
+					'property' => 'note',
+					'value' => $_POST['note']
+				),
+				array(
+					'property' => 'aff_source',
+					'value' => $_POST['aff_source']
+				),
+				array(
+					'property' => 'aff_sid',
+					'value' => $_POST['aff_sid']
+				),
+				array(
+					'property' => 'identifier',
+					'value' => gen_uuid()
+				),
+				array(
+					'property' => 'hs_lead_status',
+					'value' => "NEW"
+				)
+			)
+		);
+
+		$post_json = json_encode($arr);
+
+		$endpoint = "https://api.hubapi.com/contacts/v1/contact/?hapikey=e205b78c-66de-43f8-88c2-0d62b81c67d1";
+		$ch = @curl_init();
+		@curl_setopt($ch, CURLOPT_POST, true);
+		@curl_setopt($ch, CURLOPT_POSTFIELDS, $post_json);
+		@curl_setopt($ch, CURLOPT_URL, $endpoint);
+		@curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+		@curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$response = @curl_exec($ch);
+		$status_code = @curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		$curl_errors = curl_error($ch);
+		@curl_close($ch);
+		if ($status_code == 200) {
+			header('Location: thank.php');
+			die();
+		} else {
+			$message = 'Email đã tồn tại';
+		}
+	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -257,9 +310,9 @@ $curl_errors = curl_error($ch);
 									<p style="color: red; "> <?php echo $message; ?></p>
 								<?php } ?>
 								<div class="fct">
-									<input id="name" name="name" value="<?php if(isset($_POST['name'])) { echo $_POST['name']; } ?>" type="text" required placeholder="* Họ tên" required oninvalid="setCustomValidity('Họ tên không để trống')" oninput="setCustomValidity('')">
-									<input id="email" name="email" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>" type="text" required placeholder="* Email" required pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" oninvalid="setCustomValidity('Email không chính xác!')" oninput="setCustomValidity('')">
-									<input id="phone" name="phone" value="<?php if(isset($_POST['phone'])) { echo $_POST['phone']; } ?>" type="text" required placeholder="* Điện thoại" required pattern="^[0-9]{10,12}$" oninvalid="setCustomValidity('Số điện thoại không đúng')" oninput="setCustomValidity('')">
+									<input id="name" name="name" value="<?php if(isset($_POST['name'])) { echo $_POST['name']; } ?>" type="text" required placeholder="* Họ tên" required oninvalid="setCustomValidity('Họ tên không để trống')" oninput="setCustomValidity('')" <?php if(isset($check_messages['name'])) { echo $check_messages['name']; } ?>>
+									<input id="email" name="email" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>" type="text" required placeholder="* Email" required pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" oninvalid="setCustomValidity('Email không chính xác!')" oninput="setCustomValidity('')" <?php if(isset($check_messages['email'])) { echo $check_messages['email']; } ?>>
+									<input id="phone" name="phone" value="<?php if(isset($_POST['phone'])) { echo $_POST['phone']; } ?>" type="text" required placeholder="* Điện thoại" required pattern="^[0-9]{10,12}$" oninvalid="setCustomValidity('Số điện thoại không đúng')" oninput="setCustomValidity('')" <?php if(isset($check_messages['phone'])) { echo $check_messages['phone']; } ?>>
 									<textarea name="note" id="note" cols="30" rows="10" placeholder="Ghi chú"><?php if(isset($_POST['note'])) { echo $_POST['note']; } ?></textarea>
 									<input type="hidden" name="aff_source" id="aff_source" class="aff_source" value=""/>
 									<input type="hidden" name="aff_sid" id="aff_sid" class="aff_sid" value=""/>
